@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#111827" />
+  <meta name="description" content="Plan interactivo de estudio en Administración, Contabilidad y automatización para Venezuela." />
+  <title>Ruta Profesional | Administración & Contabilidad</title>
+  <style>
+    :root {
+      --bg:#f4f6fb; --surface:#fff; --surface-2:#eef2f8; --text:#182235;
+      --muted:#68758b; --line:#dfe5ef; --accent:#5b6ee1; --accent-2:#4354c4;
+      --good:#16866a; --warn:#b7791f; --shadow:0 12px 34px rgba(24,34,53,.07);
+      --radius:18px;
+    }
+    [data-theme="dark"] {
+      --bg:#0e1421; --surface:#171f30; --surface-2:#202b40; --text:#edf2fb;
+      --muted:#a4b0c4; --line:#2b3850; --accent:#91a0ff; --accent-2:#aab5ff;
+      --good:#5bd0ad; --warn:#f1c16b; --shadow:0 12px 34px rgba(0,0,0,.22);
+    }
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--bg);color:var(--text);font:15px/1.55 Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+    button,input,textarea,select{font:inherit}
+    button{cursor:pointer}
+    .app{min-height:100vh;display:grid;grid-template-columns:270px minmax(0,1fr)}
+    aside{background:var(--surface);border-right:1px solid var(--line);padding:26px 18px;position:sticky;top:0;height:100vh;overflow:auto}
+    .brand{display:flex;gap:12px;align-items:center;padding:0 8px 24px}
+    .brand-mark{width:42px;height:42px;border-radius:13px;background:linear-gradient(135deg,#6677ed,#8b5cf6);display:grid;place-items:center;color:white;font-weight:800;font-size:19px}
+    .brand strong{display:block;font-size:15px;letter-spacing:.01em}.brand small{color:var(--muted)}
+    .nav-label{font-size:10px;letter-spacing:.13em;color:var(--muted);font-weight:800;padding:18px 10px 8px}
+    .nav{display:grid;gap:5px}
+    .nav button{border:0;background:transparent;color:var(--muted);text-align:left;padding:11px 12px;border-radius:11px;display:flex;gap:11px;align-items:center}
+    .nav button:hover,.nav button.active{background:var(--surface-2);color:var(--text)}
+    .nav button.active{font-weight:700;box-shadow:inset 3px 0 var(--accent)}
+    .nav .ico{width:20px;text-align:center}
+    .side-foot{margin-top:28px;padding:14px;background:var(--surface-2);border-radius:14px;color:var(--muted);font-size:12px}
+    main{min-width:0;padding:28px clamp(18px,4vw,54px) 60px;max-width:1500px;width:100%;margin:auto}
+    .topbar{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:26px}
+    .eyebrow{color:var(--accent);font-size:11px;font-weight:800;letter-spacing:.13em;text-transform:uppercase}
+    h1{font-size:clamp(25px,3vw,36px);line-height:1.15;margin:5px 0 8px;letter-spacing:-.04em}
+    h2{font-size:21px;letter-spacing:-.025em;margin:0 0 5px}
+    h3{font-size:16px;margin:0 0 7px}
+    p{margin:0 0 12px}.muted{color:var(--muted)}.small{font-size:12px}
+    .actions{display:flex;gap:8px;flex-wrap:wrap}
+    .btn{border:1px solid var(--line);background:var(--surface);color:var(--text);padding:9px 13px;border-radius:10px;font-weight:650;font-size:13px}
+    .btn:hover{border-color:var(--accent);color:var(--accent)}
+    .btn.primary{background:var(--accent);color:white;border-color:var(--accent)}
+    .btn.primary:hover{background:var(--accent-2)}
+    .btn.danger{color:#d45b5b}
+    .grid{display:grid;gap:16px}.stats{grid-template-columns:repeat(4,minmax(0,1fr));margin:22px 0}
+    .card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:19px;box-shadow:var(--shadow)}
+    .stat-label{font-size:12px;color:var(--muted);font-weight:650}.stat-value{font-size:28px;font-weight:800;letter-spacing:-.04em;margin:5px 0}
+    .progress-track{height:9px;background:var(--surface-2);border-radius:99px;overflow:hidden}
+    .progress-fill{height:100%;background:linear-gradient(90deg,var(--accent),#9b7af4);border-radius:99px;transition:width .25s}
+    .hero{display:grid;grid-template-columns:1.5fr 1fr;gap:16px}
+    .hero-main{background:linear-gradient(125deg,#202e59,#4b58a9);color:white;border:0;position:relative;overflow:hidden}
+    .hero-main:after{content:"";position:absolute;width:220px;height:220px;border:1px solid #ffffff25;border-radius:50%;right:-70px;top:-100px;box-shadow:0 0 0 28px #ffffff0b,0 0 0 58px #ffffff08}
+    .hero-main .muted{color:#d9defa}.hero-main .eyebrow{color:#c2caff}
+    .hero-main h2{font-size:25px;margin:8px 0}.hero-main p{max-width:620px}
+    .hero-side{display:flex;flex-direction:column;justify-content:space-between}
+    .quick-line{display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid var(--line);font-size:13px}
+    .quick-line:last-child{border:0}
+    .section-head{display:flex;justify-content:space-between;align-items:end;gap:16px;margin:30px 0 14px}
+    .module-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .module-card{display:flex;flex-direction:column;gap:12px;transition:transform .15s,border-color .15s}
+    .module-card:hover{transform:translateY(-2px);border-color:var(--accent)}
+    .module-top{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}
+    .module-number{width:34px;height:34px;flex:0 0 34px;border-radius:10px;background:var(--surface-2);display:grid;place-items:center;color:var(--accent);font-weight:800}
+    .module-title{display:flex;gap:11px;align-items:flex-start;flex:1}
+    .tag{font-size:10px;font-weight:800;letter-spacing:.04em;padding:4px 8px;border-radius:99px;background:var(--surface-2);color:var(--muted);white-space:nowrap}
+    .tag.done{background:#dff6ee;color:#13775c}.tag.current{background:#e9ebff;color:#4c5bd0}
+    [data-theme="dark"] .tag.done{background:#153d35;color:#72d9b8}
+    [data-theme="dark"] .tag.current{background:#303963;color:#c0c8ff}
+    .module-meta{display:flex;gap:12px;flex-wrap:wrap;color:var(--muted);font-size:12px}
+    .module-card .btn{align-self:flex-start;margin-top:auto}
+    .toolbar{display:flex;gap:9px;flex-wrap:wrap;margin:16px 0}
+    .field{background:var(--surface);border:1px solid var(--line);border-radius:10px;color:var(--text);padding:10px 12px;min-width:0}
+    .search{flex:1;min-width:200px}
+    .detail-layout{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(250px,.8fr);gap:16px;align-items:start}
+    .topic{display:flex;gap:10px;align-items:flex-start;padding:12px 0;border-bottom:1px solid var(--line)}
+    .topic:last-child{border-bottom:0}.topic input{accent-color:var(--accent);width:17px;height:17px;margin-top:3px}
+    .topic label{flex:1;cursor:pointer}.topic.checked label{color:var(--muted);text-decoration:line-through}
+    .note{width:100%;min-height:130px;resize:vertical}
+    .resource-list{padding-left:18px;margin:8px 0}.resource-list li{margin:7px 0}
+    .resource-list a{color:var(--accent);text-decoration:none}.resource-list a:hover{text-decoration:underline}
+    .timeline{display:grid;gap:10px}.phase{display:flex;gap:12px;align-items:flex-start;padding:13px;border:1px solid var(--line);border-radius:12px}
+    .phase-dot{width:10px;height:10px;background:var(--accent);border-radius:50%;margin-top:6px;flex:0 0 10px}
+    .empty{padding:35px;text-align:center;color:var(--muted)}
+    .toast{position:fixed;bottom:20px;right:20px;background:var(--text);color:var(--surface);padding:11px 16px;border-radius:11px;box-shadow:var(--shadow);opacity:0;transform:translateY(10px);pointer-events:none;transition:.2s;z-index:10}
+    .toast.show{opacity:1;transform:translateY(0)}
+    .footer{border-top:1px solid var(--line);margin-top:34px;padding-top:18px;color:var(--muted);font-size:12px}
+    .hidden{display:none!important}
+    @media(max-width:1000px){.app{grid-template-columns:220px 1fr}.stats{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:720px){
+      .app{display:block}aside{height:auto;position:relative;padding:13px 14px;border-right:0;border-bottom:1px solid var(--line)}
+      .brand{padding:0 3px 10px}.nav-label,.side-foot{display:none}.nav{display:flex;overflow:auto;gap:4px;padding-bottom:2px}
+      .nav button{white-space:nowrap;padding:9px 11px;font-size:12px}.nav .ico{display:none}
+      main{padding:22px 15px 40px}.topbar{align-items:flex-start;flex-direction:column}.hero,.detail-layout{grid-template-columns:1fr}
+      .module-grid{grid-template-columns:1fr}.stats{gap:9px}.card{padding:15px}.stat-value{font-size:24px}
+    }
+  </style>
+</head>
+<body>
+<div class="app" id="app">
+  <aside>
+    <div class="brand"><div class="brand-mark">RP</div><div><strong>Ruta Profesional</strong><small>Venezuela · 24 meses</small></div></div>
+    <div class="nav-label">ESPACIO DE ESTUDIO</div>
+    <nav class="nav" aria-label="Navegación principal">
+      <button class="active" data-view="dashboard"><span class="ico">⌂</span>Resumen</button>
+      <button data-view="curriculum"><span class="ico">▤</span>Mi ruta</button>
+      <button data-view="schedule"><span class="ico">◷</span>Plan de 24 meses</button>
+      <button data-view="resources"><span class="ico">↗</span>Recursos</button>
+    </nav>
+    <div class="side-foot"><strong>Tu avance se guarda automáticamente.</strong><br>Los datos permanecen en este navegador mediante almacenamiento local. Exporta una copia de seguridad periódicamente.</div>
+  </aside>
+  <main>
+    <header class="topbar">
+      <div><div class="eyebrow">Tu formación, paso a paso</div><h1 id="page-title">Panel de progreso</h1><p class="muted" id="page-subtitle">Una ruta práctica para convertir conocimientos en servicios profesionales.</p></div>
+      <div class="actions"><button class="btn" id="theme-btn" title="Cambiar tema">◐ Tema</button><button class="btn" id="export-btn">↓ Exportar progreso</button><button class="btn" id="import-btn">↑ Importar</button><input type="file" id="import-file" accept="application/json" class="hidden"></div>
+    </header>
+    <section id="dashboard-view">
+      <div class="hero">
+        <div class="card hero-main">
+          <div class="eyebrow">Tu objetivo</div><h2>Construir una práctica contable moderna y confiable.</h2>
+          <p class="muted">Combina fundamentos administrativos y contables venezolanos con tecnología, automatización e inteligencia artificial.</p>
+          <div style="display:flex;gap:22px;flex-wrap:wrap;margin-top:22px"><div><div style="font-size:25px;font-weight:800">24</div><div class="small muted">meses de ruta</div></div><div><div style="font-size:25px;font-weight:800">12–15</div><div class="small muted">horas por semana</div></div><div><div style="font-size:25px;font-weight:800">16</div><div class="small muted">módulos</div></div></div>
+        </div>
+        <div class="card hero-side"><div><div class="eyebrow">Siguiente paso sugerido</div><h3 style="margin-top:9px">Comienza por los fundamentos</h3><p class="muted small">Estudia con constancia, practica con casos y registra tus evidencias.</p></div><button class="btn primary" id="continue-btn">Continuar mi ruta →</button></div>
+      </div>
+      <div class="grid stats">
+        <div class="card"><div class="stat-label">Progreso total</div><div class="stat-value" id="overall-pct">0%</div><div class="progress-track"><div class="progress-fill" id="overall-bar" style="width:0%"></div></div></div>
+        <div class="card"><div class="stat-label">Temas completados</div><div class="stat-value" id="done-count">0 / 0</div><div class="muted small">Checklist de aprendizaje</div></div>
+        <div class="card"><div class="stat-label">Módulos terminados</div><div class="stat-value" id="module-count">0 / 16</div><div class="muted small">Al completar todos sus temas</div></div>
+        <div class="card"><div class="stat-label">Tiempo estimado</div><div class="stat-value">24 meses</div><div class="muted small">12–15 h por semana</div></div>
+      </div>
+      <div class="section-head"><div><h2>Tu ruta de aprendizaje</h2><p class="muted small">Abre cualquier módulo para marcar temas, escribir notas y seguir tu avance.</p></div><button class="btn" data-go="curriculum">Ver todos →</button></div>
+      <div class="grid module-grid" id="dashboard-modules"></div>
+    </section>
+    <section id="curriculum-view" class="hidden">
+      <div class="section-head"><div><h2>Todos los módulos</h2><p class="muted small">16 áreas para desarrollar criterio profesional y capacidad tecnológica.</p></div></div>
+      <div class="toolbar"><input class="field search" id="module-search" placeholder="Buscar módulos o temas…" aria-label="Buscar"><select class="field" id="module-filter"><option value="all">Todos los estados</option><option value="pending">Pendientes</option><option value="progress">En progreso</option><option value="done">Completados</option></select></div>
+      <div class="grid module-grid" id="all-modules"></div>
+    </section>
+    <section id="detail-view" class="hidden">
+      <div class="actions" style="margin-bottom:16px"><button class="btn" id="back-btn">← Volver a la ruta</button></div>
+      <div id="detail-content"></div>
+    </section>
+    <section id="schedule-view" class="hidden">
+      <div class="section-head"><div><h2>Plan sugerido de 24 meses</h2><p class="muted small">Ajusta el ritmo según tu carga académica y experiencia previa.</p></div></div>
+      <div class="card timeline" id="timeline"></div>
+      <div class="card" style="margin-top:16px"><h3>Rutina semanal recomendada</h3><div class="quick-line"><span>Teoría y lectura normativa</span><strong>3–4 h</strong></div><div class="quick-line"><span>Ejercicios y casos prácticos</span><strong>4–5 h</strong></div><div class="quick-line"><span>Software, datos y automatización</span><strong>3–4 h</strong></div><div class="quick-line"><span>Repaso y documentación</span><strong>1–2 h</strong></div></div>
+    </section>
+    <section id="resources-view" class="hidden">
+      <div class="section-head"><div><h2>Biblioteca de recursos</h2><p class="muted small">Prioriza fuentes oficiales y documentación técnica vigente.</p></div></div>
+      <div class="grid module-grid" id="resource-cards"></div>
+      <div class="card" style="margin-top:16px"><h3>Nota importante sobre el ejercicio profesional</h3><p class="muted">En Venezuela, determinados actos y trabajos están reservados a profesionales habilitados conforme a la Ley de Ejercicio de la Contaduría Pública y las reglas de colegiación. Estudiar Administración, usar un ERP o automatizar procesos no habilita por sí solo para firmar o ejecutar actos reservados a un contador público. Verifica siempre la normativa vigente y consulta al colegio profesional correspondiente.</p><p class="muted">Odoo estándar no garantiza por sí solo el cumplimiento fiscal venezolano. Antes de usarlo con clientes, valida la localización, los módulos fiscales, la facturación, los reportes y las actualizaciones normativas.</p></div>
+    </section>
+    <footer class="footer">Hecho para estudiar y practicar. No sustituye asesoría legal, tributaria ni contable. Verifica siempre las normas vigentes en Venezuela.</footer>
+  </main>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script>
+const modules = [
+ {id:1,title:"Administración y gestión empresarial",time:"Meses 1–2",level:"Fundamentos",topics:["Proceso administrativo: planificar, organizar, dirigir y controlar","Estructura organizacional, funciones y responsabilidades","Procesos, indicadores de gestión y toma de decisiones","Gestión de operaciones, calidad y mejora continua","Ética, comunicación y liderazgo"],practice:"Elabora el mapa de procesos y un organigrama para una pequeña empresa."},
+ {id:2,title:"Modelos de negocio y emprendimiento",time:"Meses 2–3",level:"Fundamentos",topics:["Propuesta de valor y segmentos de clientes","Modelo Canvas y validación de problemas","Costos, precios, ingresos y punto de equilibrio","Diseño de servicios profesionales y experiencia del cliente"],practice:"Diseña una propuesta de servicios administrativos y contables para una microempresa."},
+ {id:3,title:"Contabilidad financiera básica",time:"Meses 3–5",level:"Contabilidad",topics:["Ecuación patrimonial y naturaleza de las cuentas","Plan de cuentas y partida doble","Registro de compras, ventas, cobros y pagos","Libro diario, mayor y balance de comprobación","Estados financieros básicos y ciclo contable","Conciliaciones bancarias y control documental"],practice:"Registra un mes completo de operaciones de una empresa ficticia y prepara sus estados financieros."},
+ {id:4,title:"Contabilidad avanzada y VEN-NIF",time:"Meses 5–7",level:"Contabilidad",topics:["Marco conceptual y principios de información financiera","VEN-NIF GE y VEN-NIF PYME: estructura y aplicación","BA VEN-NIF y revisión de versiones vigentes","Ajuste por inflación: partidas monetarias y no monetarias","INPC, posición monetaria y resultado por exposición a la inflación","Moneda extranjera, conversión y diferencias cambiarias","Políticas contables, estimaciones y revelaciones"],practice:"Prepara un caso práctico de cierre contable con análisis de inflación y moneda extranjera."},
+ {id:5,title:"Costos y contabilidad gerencial",time:"Meses 7–8",level:"Contabilidad",topics:["Costos fijos, variables, directos e indirectos","Costeo por órdenes y por procesos","Costeo absorbente y variable","Margen de contribución y punto de equilibrio","Presupuestos, variaciones y costos relevantes"],practice:"Construye una hoja de costos y un presupuesto mensual para una empresa pequeña."},
+ {id:6,title:"Finanzas empresariales",time:"Meses 8–9",level:"Finanzas",topics:["Valor del dinero en el tiempo","Flujo de caja y capital de trabajo","Análisis de liquidez, solvencia, rentabilidad y endeudamiento","Presupuestos y proyecciones financieras","Riesgo cambiario, inflación y escenarios en Venezuela"],practice:"Prepara un flujo de caja de 12 meses con escenarios de inflación y tipo de cambio."},
+ {id:7,title:"Sistema tributario venezolano",time:"Meses 9–12",level:"Venezuela",topics:["Código Orgánico Tributario: obligaciones y procedimientos","IVA: hechos imponibles, créditos, débitos y declaraciones","ISLR: determinación, conciliación fiscal y declaración","IGTF y operaciones sujetas","Retenciones de IVA e ISLR y deberes de agentes","Tributos municipales y actividades económicas","Sujetos pasivos especiales, calendarios y deberes formales","Facturación, soportes, libros y revisión de normativa SENIAT"],practice:"Simula el cumplimiento mensual y anual de una empresa, con calendario, papeles de trabajo y declaraciones de práctica."},
+ {id:8,title:"Laboral, nómina y seguridad social",time:"Meses 11–13",level:"Venezuela",topics:["LOTTT: relaciones laborales y obligaciones del patrono","Cálculo de nómina, vacaciones, utilidades y prestaciones","IVSS: inscripción, aportes y obligaciones","FAOV/BANAVIH e INCES: obligaciones y cálculos","Expedientes laborales, soportes y controles"],practice:"Construye una nómina de prueba y un calendario de obligaciones laborales."},
+ {id:9,title:"Auditoría y control interno",time:"Meses 13–14",level:"Control",topics:["Riesgos y ambiente de control","Segregación de funciones y controles clave","Evidencia, materialidad y papeles de trabajo","Pruebas de cumplimiento y sustantivas","Inventarios, caja, bancos, cuentas por cobrar y pagar","Hallazgos, recomendaciones e informes"],practice:"Diseña una matriz de riesgos y un programa de auditoría para una pyme."},
+ {id:10,title:"Excel, análisis de datos y Power BI",time:"Meses 14–15",level:"Tecnología",topics:["Fórmulas, funciones, tablas y validación de datos","BUSCARX, SUMAR.SI.CONJUNTO y funciones lógicas","Tablas dinámicas y Power Query","Modelado de datos y medidas básicas en Power BI","Dashboards de ventas, gastos, caja e impuestos"],practice:"Crea un dashboard gerencial usando datos contables ficticios."},
+ {id:11,title:"ERP y Odoo para procesos empresariales",time:"Meses 15–17",level:"Tecnología",topics:["Conceptos ERP, módulos y flujos de negocio","Instalación y configuración de entorno de prueba","Contactos, ventas, compras, inventario y contabilidad","Usuarios, roles, permisos y trazabilidad","Localización venezolana: validación fiscal y funcional","Respaldos, actualizaciones y pruebas antes de producción"],practice:"Configura una empresa demo en Odoo y documenta el ciclo compra–inventario–venta–cobro."},
+ {id:12,title:"Automatización con n8n",time:"Meses 17–18",level:"Tecnología",topics:["Triggers, nodos, credenciales y flujos","Webhooks, HTTP Request y APIs REST","Validación, transformación y manejo de errores","Automatización de documentos y notificaciones","Logs, alertas, reintentos y seguridad de credenciales"],practice:"Automatiza la recepción de documentos y la creación de una tarea de revisión."},
+ {id:13,title:"Python, SQL, APIs e inteligencia artificial",time:"Meses 18–20",level:"Tecnología",topics:["Python: variables, estructuras, funciones y archivos","SQL: SELECT, JOIN, GROUP BY y consultas de control","JSON, APIs, autenticación y manejo de errores","IA generativa: extracción, clasificación y asistencia","Validación humana, privacidad y límites de la IA","Pruebas, control de versiones y documentación"],practice:"Crea un prototipo que clasifique documentos de prueba y genere un borrador de registro para revisión humana."},
+ {id:14,title:"Arquitectura SaaS y multi-tenant",time:"Meses 20–21",level:"Tecnología",topics:["Conceptos SaaS y separación por cliente","Aislamiento de datos, permisos y auditoría","Diseño de base de datos y respaldos","Gestión de suscripciones, límites y soporte","Seguridad, privacidad y continuidad operativa"],practice:"Diseña un diagrama de arquitectura multi-tenant y una matriz de acceso por cliente."},
+ {id:15,title:"Gestión de una firma contable",time:"Meses 21–22",level:"Profesional",topics:["Ley de Ejercicio de la Contaduría Pública y colegiación","Alcance profesional, independencia y ética","Contratos, cartas de servicio y delimitación de responsabilidades","Onboarding, expedientes y listas de verificación","Precios, rentabilidad, capacidad y atención al cliente","Control de calidad y revisión de entregables"],practice:"Diseña el proceso de incorporación y atención mensual de un cliente, respetando el alcance legal profesional."},
+ {id:16,title:"Proyecto integrador: firma contable automatizada",time:"Meses 22–24",level:"Proyecto final",topics:["Definir nicho, propuesta de valor y servicios","Configurar entorno Odoo de prueba y procesos contables","Conectar flujos n8n y APIs con controles de seguridad","Diseñar separación multi-tenant y permisos","Construir panel de seguimiento para clientes","Documentar validaciones fiscales, revisión humana y contingencias","Presentar demo, manual operativo y plan de mejora"],practice:"Entrega un prototipo demostrable de una operación contable digital para una pyme venezolana. No uses datos reales de clientes en el entorno de prueba."}
+];
+const resources = [
+ {title:"FCCPV · Normas VEN-NIF",desc:"Boletines, normas y material técnico de la Federación de Colegios de Contadores Públicos de Venezuela.",url:"https://fccpv.org/"},
+ {title:"SENIAT",desc:"Portal oficial para normativa, declaraciones, calendarios y deberes tributarios.",url:"https://www.seniat.gob.ve/"},
+ {title:"Banco Central de Venezuela",desc:"Indicadores económicos y publicaciones oficiales.",url:"https://www.bcv.org.ve/"},
+ {title:"Gaceta Oficial",desc:"Consulta publicaciones normativas y textos legales vigentes.",url:"http://www.gacetaoficial.gob.ve/"},
+ {title:"Odoo Documentation",desc:"Documentación oficial para aprender configuración, módulos y flujos ERP.",url:"https://www.odoo.com/documentation/"},
+ {title:"n8n Documentation",desc:"Guías oficiales de automatización, nodos, credenciales y despliegue.",url:"https://docs.n8n.io/"},
+ {title:"Python",desc:"Tutorial y documentación oficial del lenguaje.",url:"https://docs.python.org/3/tutorial/"},
+ {title:"PostgreSQL",desc:"Documentación oficial para bases de datos relacionales.",url:"https://www.postgresql.org/docs/"}
+];
+const phases = [
+ ["Meses 1–3","Administración, modelos de negocio y fundamentos iniciales de contabilidad.","Módulos 1–3"],
+ ["Meses 4–6","Ciclo contable, estados financieros, VEN-NIF y bases de ajustes contables.","Módulos 3–4"],
+ ["Meses 7–9","Contabilidad avanzada, costos, presupuestos y finanzas.","Módulos 4–6"],
+ ["Meses 10–12","Sistema tributario venezolano y práctica de cumplimiento fiscal.","Módulo 7"],
+ ["Meses 13–15","Nómina, seguridad social, auditoría, Excel y Power BI.","Módulos 8–10"],
+ ["Meses 16–18","ERP Odoo, procesos empresariales y automatización con n8n.","Módulos 11–12"],
+ ["Meses 19–21","Python, SQL, APIs, IA y arquitectura SaaS multi-tenant.","Módulos 13–14"],
+ ["Meses 22–24","Gestión profesional y proyecto integrador de firma contable digital.","Módulos 15–16"]
+];
+const STORE_KEY = "ruta-profesional-ve-v1";
+let state = loadState();
+let currentModule = null;
+function loadState(){try{return JSON.parse(localStorage.getItem(STORE_KEY))||{checks:{},notes:{},theme:"light"}}catch(e){return {checks:{},notes:{},theme:"light"}}}
+function saveState(){localStorage.setItem(STORE_KEY,JSON.stringify(state));renderStats()}
+function allTopics(){return modules.reduce((n,m)=>n+m.topics.length,0)}
+function moduleDone(m){return m.topics.every((_,i)=>!!state.checks[m.id+"-"+i])}
+function moduleProgress(m){return Math.round(m.topics.filter((_,i)=>state.checks[m.id+"-"+i]).length/m.topics.length*100)}
+function totals(){const total=allTopics(),done=Object.values(state.checks).filter(Boolean).length;return {total,done,pct:Math.round(done/total*100),modules:modules.filter(moduleDone).length}}
+function renderStats(){const t=totals();document.getElementById("overall-pct").textContent=t.pct+"%";document.getElementById("overall-bar").style.width=t.pct+"%";document.getElementById("done-count").textContent=t.done+" / "+t.total;document.getElementById("module-count").textContent=t.modules+" / 16"}
+function status(m){const p=moduleProgress(m);return p===100?"done":p>0?"progress":"pending"}
+function cardHTML(m){const p=moduleProgress(m),s=status(m);return `<article class="card module-card"><div class="module-top"><div class="module-title"><div class="module-number">${String(m.id).padStart(2,"0")}</div><div><h3>${m.title}</h3><div class="module-meta"><span>${m.time}</span><span>·</span><span>${m.level}</span></div></div></div><span class="tag ${s==="done"?"done":s==="progress"?"current":""}">${s==="done"?"Completado":s==="progress"?"En progreso":"Pendiente"}</span></div><div><div style="display:flex;justify-content:space-between;font-size:12px;margin-bottom:6px"><span class="muted">${m.topics.filter((_,i)=>state.checks[m.id+"-"+i]).length} de ${m.topics.length} temas</span><strong>${p}%</strong></div><div class="progress-track"><div class="progress-fill" style="width:${p}%"></div></div></div><button class="btn" data-module="${m.id}">Abrir módulo →</button></article>`}
+function renderCards(target,list){document.getElementById(target).innerHTML=list.map(cardHTML).join("")||'<div class="card empty">No hay módulos que coincidan con tu búsqueda.</div>'}
+function openModule(id){currentModule=modules.find(m=>m.id===id);if(!currentModule)return;showView("detail");renderDetail()}
+function renderDetail(){const m=currentModule,p=moduleProgress(m);document.getElementById("detail-content").innerHTML=`<div class="section-head"><div><div class="eyebrow">Módulo ${String(m.id).padStart(2,"0")} · ${m.time}</div><h2>${m.title}</h2><p class="muted small">${m.level} · ${p}% completado</p></div><span class="tag ${p===100?"done":p?"current":""}">${p===100?"Completado":p?"En progreso":"Pendiente"}</span></div><div class="detail-layout"><div class="card"><h3>Temario y checklist</h3><p class="muted small">Marca cada tema cuando puedas explicarlo y resolver un ejercicio relacionado.</p><div id="topic-list">${m.topics.map((topic,i)=>{const checked=!!state.checks[m.id+"-"+i];return `<div class="topic ${checked?"checked":""}"><input type="checkbox" id="topic-${i}" data-topic="${i}" ${checked?"checked":""}><label for="topic-${i}">${topic}</label></div>`}).join("")}</div><div style="margin-top:18px"><div style="display:flex;justify-content:space-between;font-size:12px;margin-bottom:6px"><span class="muted">Progreso del módulo</span><strong>${p}%</strong></div><div class="progress-track"><div class="progress-fill" style="width:${p}%"></div></div></div></div><div class="grid"><div class="card"><h3>Práctica recomendada</h3><p class="muted">${m.practice}</p></div><div class="card"><h3>Mis notas</h3><p class="muted small">Registra dudas, ejemplos, enlaces y evidencias de aprendizaje.</p><textarea class="field note" id="module-note" placeholder="Escribe tus apuntes aquí…">${escapeHTML(state.notes[m.id]||"")}</textarea><div class="small muted" style="margin-top:7px">Se guarda automáticamente en este navegador.</div></div></div></div>`;
+ document.querySelectorAll("[data-topic]").forEach(el=>el.addEventListener("change",e=>{const key=m.id+"-"+e.target.dataset.topic;state.checks[key]=e.target.checked;saveState();renderDetail();}));
+ document.getElementById("module-note").addEventListener("input",e=>{state.notes[m.id]=e.target.value;localStorage.setItem(STORE_KEY,JSON.stringify(state));});
+}
+function escapeHTML(s){return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
+const views=["dashboard","curriculum","schedule","resources","detail"];
+function showView(view){views.forEach(v=>document.getElementById(v+"-view").classList.toggle("hidden",v!==view));document.querySelectorAll("[data-view]").forEach(b=>b.classList.toggle("active",b.dataset.view===view));const titles={dashboard:["Panel de progreso","Una ruta práctica para convertir conocimientos en servicios profesionales."],curriculum:["Mi ruta de aprendizaje","Explora los módulos, registra tu avance y construye evidencia práctica."],schedule:["Plan de 24 meses","Una secuencia sugerida para avanzar con bases sólidas."],resources:["Recursos de estudio","Fuentes oficiales y documentación técnica para profundizar."],detail:["Detalle del módulo",""]};document.getElementById("page-title").textContent=titles[view][0];document.getElementById("page-subtitle").textContent=titles[view][1];if(view==="dashboard")renderCards("dashboard-modules",modules.slice(0,4));if(view==="curriculum")filterModules()}
+function filterModules(){const q=(document.getElementById("module-search").value||"").toLowerCase(),f=document.getElementById("module-filter").value;const list=modules.filter(m=>(m.title+" "+m.topics.join(" ")).toLowerCase().includes(q)&&(f==="all"||status(m)===f));renderCards("all-modules",list)}
+function toast(msg){const el=document.getElementById("toast");el.textContent=msg;el.classList.add("show");setTimeout(()=>el.classList.remove("show"),2300)}
+document.addEventListener("click",e=>{const nav=e.target.closest("[data-view]");if(nav)showView(nav.dataset.view);const card=e.target.closest("[data-module]");if(card)openModule(Number(card.dataset.module));const go=e.target.closest("[data-go]");if(go)showView(go.dataset.go)});
+document.getElementById("continue-btn").onclick=()=>{const next=modules.find(m=>!moduleDone(m))||modules[0];openModule(next.id)};
+document.getElementById("back-btn").onclick=()=>showView("curriculum");
+document.getElementById("module-search").addEventListener("input",filterModules);document.getElementById("module-filter").addEventListener("change",filterModules);
+document.getElementById("theme-btn").onclick=()=>{state.theme=state.theme==="dark"?"light":"dark";document.documentElement.dataset.theme=state.theme==="dark"?"dark":"";saveState()};
+function download(name,content,type){const a=document.createElement("a"),url=URL.createObjectURL(new Blob([content],{type}));a.href=url;a.download=name;a.click();URL.revokeObjectURL(url)}
+document.getElementById("export-btn").onclick=()=>{download("mi-progreso-ruta-profesional.json",JSON.stringify({...state,exportedAt:new Date().toISOString()},null,2),"application/json");toast("Copia de seguridad exportada")};
+document.getElementById("import-btn").onclick=()=>document.getElementById("import-file").click();
+document.getElementById("import-file").onchange=async e=>{const file=e.target.files[0];if(!file)return;try{const data=JSON.parse(await file.text());if(!data||typeof data!=="object"||!data.checks||!data.notes)throw new Error();state={checks:data.checks,notes:data.notes,theme:data.theme==="dark"?"dark":"light"};localStorage.setItem(STORE_KEY,JSON.stringify(state));document.documentElement.dataset.theme=state.theme==="dark"?"dark":"";renderStats();showView("dashboard");toast("Progreso importado correctamente")}catch(err){toast("Archivo no válido")}e.target.value=""};
+document.getElementById("timeline").innerHTML=phases.map(p=>`<div class="phase"><div class="phase-dot"></div><div><strong>${p[0]}</strong><p class="muted small" style="margin:3px 0">${p[1]}</p><span class="tag">${p[2]}</span></div></div>`).join("");
+document.getElementById("resource-cards").innerHTML=resources.map(r=>`<article class="card"><h3>${r.title}</h3><p class="muted small">${r.desc}</p><a href="${r.url}" target="_blank" rel="noopener noreferrer" style="color:var(--accent);font-size:13px;font-weight:700">Visitar sitio ↗</a></article>`).join("");
+document.documentElement.dataset.theme=state.theme==="dark"?"dark":"";renderStats();showView("dashboard");
+</script>
+</body>
+</html>

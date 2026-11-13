@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#101827">
+  <title>Mi centro de aprendizaje</title>
+  <style>
+    :root {
+      --bg: #0b1220;
+      --surface: rgba(20, 31, 49, .88);
+      --surface-2: #1b2940;
+      --text: #edf3fb;
+      --muted: #a9b8cc;
+      --accent: #7dd3fc;
+      --accent-2: #38bdf8;
+      --border: rgba(173, 197, 225, .16);
+      --radius: 22px;
+      --shadow: 0 22px 60px rgba(0,0,0,.28);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 12% 8%, rgba(56,189,248,.18), transparent 32rem),
+        radial-gradient(circle at 88% 82%, rgba(129,140,248,.14), transparent 30rem),
+        var(--bg);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.6;
+    }
+    .wrap { width: min(1080px, calc(100% - 40px)); margin: 0 auto; }
+    header { padding: 28px 0; display: flex; justify-content: space-between; align-items: center; gap: 16px; }
+    .brand { display: flex; align-items: center; gap: 12px; font-weight: 750; letter-spacing: .2px; }
+    .brand-mark {
+      width: 42px; height: 42px; display: grid; place-items: center;
+      border-radius: 14px; color: #071321; background: var(--accent); font-size: 1.15rem;
+    }
+    .eyebrow { color: var(--accent); font-size: .78rem; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; }
+    .hero { padding: clamp(54px, 9vw, 104px) 0 56px; max-width: 790px; }
+    h1 { margin: 12px 0 18px; font-size: clamp(2.5rem, 7vw, 5rem); line-height: 1.04; letter-spacing: -.055em; }
+    .hero p { max-width: 650px; color: var(--muted); font-size: clamp(1rem, 2vw, 1.18rem); margin: 0; }
+    .section-head { display:flex; justify-content:space-between; align-items:end; gap:20px; margin: 20px 0 18px; }
+    h2 { margin: 0; font-size: 1.35rem; letter-spacing: -.02em; }
+    .section-head p { margin: 0; color: var(--muted); font-size: .9rem; }
+    .cards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; padding-bottom: 72px; }
+    .card {
+      position: relative; overflow: hidden; padding: 28px; min-height: 270px;
+      display: flex; flex-direction: column; align-items: flex-start;
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); box-shadow: var(--shadow);
+      backdrop-filter: blur(12px);
+    }
+    .card:before {
+      content:""; position:absolute; width:190px; height:190px; border-radius:50%;
+      background:rgba(56,189,248,.09); right:-70px; top:-90px; pointer-events:none;
+    }
+    .icon { width: 48px; height: 48px; display:grid; place-items:center; border-radius:15px; background:var(--surface-2); font-size:1.35rem; }
+    .card h3 { margin: 20px 0 8px; font-size:1.3rem; }
+    .card p { margin:0 0 24px; color:var(--muted); max-width:440px; }
+    .button {
+      margin-top:auto; display:inline-flex; align-items:center; justify-content:center; gap:10px;
+      padding:12px 18px; border-radius:12px; background:var(--accent); color:#082032;
+      font-weight:800; text-decoration:none; transition:transform .18s ease, background .18s ease;
+    }
+    .button:hover { transform:translateY(-2px); background:#bae6fd; }
+    .button.secondary { color:var(--text); background:var(--surface-2); border:1px solid var(--border); }
+    .button.secondary:hover { background:#263953; }
+    footer { border-top:1px solid var(--border); padding:22px 0 34px; color:var(--muted); font-size:.85rem; }
+    footer .wrap { display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; }
+    @media (max-width:700px) {
+      .cards { grid-template-columns:1fr; }
+      header { padding:20px 0; }
+      .section-head { align-items:flex-start; flex-direction:column; gap:5px; }
+      .card { min-height:245px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="wrap">
+    <div class="brand">
+      <div class="brand-mark">✦</div>
+      <span>Mi centro de aprendizaje</span>
+    </div>
+    <span class="eyebrow">Biblioteca de planes</span>
+  </header>
+
+  <main class="wrap">
+    <section class="hero">
+      <div class="eyebrow">Aprender · Practicar · Construir</div>
+      <h1>Tu espacio para aprender con propósito.</h1>
+      <p>Accede a tus rutas de estudio, organiza tus recursos y avanza a tu propio ritmo. Esta portada es una plantilla: puedes cambiar los títulos, textos y destinos de cada botón.</p>
+    </section>
+
+    <section aria-labelledby="plans-title">
+      <div class="section-head">
+        <h2 id="plans-title">Mis planes de estudio</h2>
+        <p>Selecciona una ruta para comenzar.</p>
+      </div>
+
+      <div class="cards">
+        <article class="card">
+          <div class="icon" aria-hidden="true">📈</div>
+          <h3>Plan profesional de embudos de venta</h3>
+          <p>Ruta de 24 meses con módulos, ejercicios, proyectos y recursos para diseñar, medir y optimizar embudos de venta.</p>
+          <!-- EDITA EL DESTINO: cambia el href por el nombre/ruta de tu archivo HTML. -->
+          <a class="button" href="plan_embudos_venta_24_meses.html">Abrir el plan <span aria-hidden="true">→</span></a>
+        </article>
+
+        <article class="card">
+          <div class="icon" aria-hidden="true">📚</div>
+          <h3>Mi otro plan de estudio</h3>
+          <p>Usa esta tarjeta como modelo para enlazar otro plan que ya tengas. Cambia el título, la descripción y el destino del botón.</p>
+          <!-- DUPLICA ESTA TARJETA Y EDITA EL href PARA AÑADIR MÁS PLANES. -->
+          <a class="button secondary" href="mi-otro-plan.html">Abrir mi otro plan <span aria-hidden="true">→</span></a>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <span>Mi centro de aprendizaje</span>
+      <span>Plantilla HTML editable · CSS incluido · Sin dependencias</span>
+    </div>
+  </footer>
+</body>
+</html>
