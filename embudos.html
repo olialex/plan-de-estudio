@@ -5,17 +5,142 @@
 <meta name="description" content="Plan profesional de estudio de embudos de venta de 24 meses, con módulos, proyectos y seguimiento interactivo.">
 <title>Plan de estudios · Embudos de venta (24 meses)</title>
 <style>
-:root{--bg:#f4f6fb;--surface:#fff;--ink:#182235;--muted:#65728a;--line:#e2e7f0;--brand:#3659c9;--brand2:#233e9b;--soft:#edf1ff;--green:#13834b;--shadow:0 10px 30px rgba(22,38,75,.07)}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.6 Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
-a{color:var(--brand);text-decoration:none}a:hover{text-decoration:underline}.top{background:linear-gradient(125deg,#172b67,#3659c9 65%,#7188e8);color:#fff;padding:42px 20px 34px}.wrap{max-width:1120px;margin:auto;padding:0 20px}.eyebrow{text-transform:uppercase;letter-spacing:.14em;font-size:11px;font-weight:800;opacity:.8}.top h1{font-size:clamp(30px,5vw,48px);line-height:1.1;margin:10px 0}.top p{max-width:780px;color:#e4eaff;margin:0}.pills{display:flex;gap:9px;flex-wrap:wrap;margin-top:20px}.pill{border:1px solid #ffffff55;border-radius:99px;padding:5px 11px;font-size:12px}
-.layout{display:grid;grid-template-columns:250px minmax(0,1fr);gap:24px;align-items:start;margin-top:26px}.sidebar{position:sticky;top:16px;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:16px;box-shadow:var(--shadow)}.sidebar b{display:block;margin:0 0 8px}.sidebar a{display:block;padding:7px 9px;border-radius:8px;color:var(--muted);font-size:13px}.sidebar a:hover{background:var(--soft);color:var(--brand);text-decoration:none}
-main{min-width:0}.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:18px}.stat,.panel,.stage{background:var(--surface);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow)}.stat{padding:16px}.stat strong{display:block;font-size:25px;color:var(--brand)}.stat span{font-size:12px;color:var(--muted)}
-.panel{padding:22px;margin-bottom:18px}.panel h2{margin:0 0 10px;font-size:22px}.panel h3{margin:18px 0 7px;font-size:16px}.muted{color:var(--muted)}.stage{margin-bottom:16px;overflow:hidden}.stage-head{padding:20px 22px;background:linear-gradient(90deg,#f7f8ff,#fff);border-bottom:1px solid var(--line)}.stage-head .period{font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--brand);font-weight:800}.stage-head h2{margin:3px 0;font-size:21px}.stage-body{padding:8px 22px 22px}.module{border-bottom:1px solid var(--line);padding:14px 0}.module:last-of-type{border-bottom:0}.module summary{cursor:pointer;font-weight:750;list-style:none;display:flex;justify-content:space-between;gap:12px}.module summary::-webkit-details-marker{display:none}.module summary:after{content:"＋";color:var(--brand);font-size:18px}.module[open] summary:after{content:"−"}.module ul{margin:10px 0 0;padding-left:20px;color:#46536a}.module li{margin:6px 0}.project{background:#f0f4ff;border-left:4px solid var(--brand);padding:13px 15px;border-radius:8px;margin-top:15px}.project b{display:block;color:var(--brand2);margin-bottom:3px}
-.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}.resource{padding:13px;border:1px solid var(--line);border-radius:12px}.resource b{display:block}.resource small{display:block;color:var(--muted);margin:5px 0 8px}.table-wrap{overflow:auto}table{border-collapse:collapse;width:100%;font-size:14px}td,th{text-align:left;padding:11px;border-bottom:1px solid var(--line);vertical-align:top}th{color:var(--muted);font-size:12px;text-transform:uppercase;letter-spacing:.05em}
-.checklist{display:grid;gap:10px}.check{display:flex;gap:10px;align-items:flex-start;padding:10px 12px;border:1px solid var(--line);border-radius:10px}.check input{margin-top:5px;accent-color:var(--brand);width:17px;height:17px}.check.done span{text-decoration:line-through;color:#8993a5}.progress{height:10px;background:#e9edf5;border-radius:99px;overflow:hidden}.progress>div{height:100%;background:var(--green);width:0;transition:width .2s}.progress-row{display:flex;justify-content:space-between;align-items:center;margin:12px 0 7px}.btn{border:0;background:var(--brand);color:#fff;border-radius:9px;padding:9px 13px;font-weight:700;cursor:pointer}.btn:hover{background:var(--brand2)}.btn.secondary{background:#eef1f8;color:#34415a}.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.note{background:#fff8e8;border:1px solid #f4e1ae;border-radius:10px;padding:13px;color:#66501b}.footer{text-align:center;padding:30px 15px;color:var(--muted);font-size:12px}
-@media(max-width:850px){.layout{grid-template-columns:1fr}.sidebar{position:static}.sidebar nav{display:flex;overflow:auto;gap:4px}.sidebar a{white-space:nowrap}.stats{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:560px){.wrap{padding:0 13px}.top{padding:32px 0}.panel{padding:17px}.grid2{grid-template-columns:1fr}.stage-head,.stage-body{padding-left:16px;padding-right:16px}.stats{gap:8px}.stat{padding:12px}}
-@media print{body{background:#fff}.top{background:#fff;color:#111;padding:15px 0}.top p{color:#333}.layout{display:block}.sidebar,.actions,.btn{display:none!important}.panel,.stage,.stat{box-shadow:none;break-inside:avoid}.stage{break-inside:auto}.module{break-inside:avoid}details:not([open])>*:not(summary){display:block}.footer{display:none}}
+
+:root{
+ --bg:#f3f6fc;--surface:#fff;--ink:#182235;--muted:#65728a;--line:#e2e8f2;
+ --brand:#3659c9;--brand2:#233e9b;--soft:#edf1ff;--green:#13834b;
+ --shadow:0 8px 26px rgba(22,38,75,.07);--radius:18px
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:18px;-webkit-text-size-adjust:100%}
+body{margin:0;width:100%;min-width:0;overflow-x:hidden;background:var(--bg);color:var(--ink);
+ font:16px/1.65 Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif}
+img,svg,video{max-width:100%;height:auto}
+a{color:var(--brand);text-decoration:none;overflow-wrap:anywhere}
+a:hover{text-decoration:underline}
+button,input{font:inherit}
+button{touch-action:manipulation}
+.top{width:100%;background:linear-gradient(125deg,#172b67,#3659c9 65%,#7188e8);color:#fff;padding:clamp(30px,6vw,58px) 0 34px}
+.wrap{width:min(1120px,100%);max-width:100%;margin:0 auto;padding-inline:clamp(14px,3vw,24px)}
+.eyebrow{text-transform:uppercase;letter-spacing:.14em;font-size:11px;font-weight:800;opacity:.85}
+.top h1{font-size:clamp(29px,5vw,48px);line-height:1.1;letter-spacing:-.035em;margin:10px 0 14px;max-width:800px}
+.top p{max-width:780px;color:#e4eaff;margin:0;font-size:clamp(15px,2vw,18px)}
+.pills{display:flex;gap:8px;flex-wrap:wrap;margin-top:20px}
+.pill{border:1px solid #ffffff55;border-radius:99px;padding:5px 11px;font-size:12px}
+.layout{display:grid;grid-template-columns:minmax(0,245px) minmax(0,1fr);gap:22px;align-items:start;margin:24px auto 0}
+.sidebar{position:sticky;top:14px;min-width:0;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:15px;box-shadow:var(--shadow)}
+.sidebar b{display:block;margin:0 0 8px}
+.sidebar nav{display:grid;gap:3px}
+.sidebar a{display:block;padding:8px 10px;border-radius:9px;color:var(--muted);font-size:14px}
+.sidebar a:hover,.sidebar a:focus{background:var(--soft);color:var(--brand);text-decoration:none}
+main{min-width:0;width:100%}
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:18px 0}
+.stat,.panel,.stage{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);min-width:0}
+.stat{padding:15px}
+.stat strong{display:block;font-size:clamp(22px,3vw,27px);color:var(--brand);line-height:1.2}
+.stat span{font-size:12px;color:var(--muted)}
+.panel{padding:clamp(17px,3vw,24px);margin-bottom:18px}
+.panel h2{margin:0 0 10px;font-size:clamp(20px,3vw,24px);line-height:1.25}
+.panel h3{margin:20px 0 8px;font-size:17px}
+.muted{color:var(--muted)}
+.stage{margin-bottom:16px;overflow:hidden}
+.stage-head{padding:19px clamp(15px,3vw,23px);background:linear-gradient(90deg,#f7f8ff,#fff);border-bottom:1px solid var(--line)}
+.stage-head .period{font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--brand);font-weight:800}
+.stage-head h2{margin:3px 0 0;font-size:clamp(18px,2.5vw,21px);line-height:1.3}
+.stage-body{padding:8px clamp(15px,3vw,23px) 20px}
+.module{border-bottom:1px solid var(--line);padding:13px 0}
+.module:last-of-type{border-bottom:0}
+.module summary{cursor:pointer;font-weight:750;list-style:none;display:flex;align-items:flex-start;justify-content:space-between;gap:12px;min-width:0}
+.module summary::-webkit-details-marker{display:none}
+.module summary:after{content:"＋";flex:0 0 auto;color:var(--brand);font-size:18px;line-height:1.3}
+.module[open] summary:after{content:"−"}
+.module ul{margin:10px 0 0;padding-left:20px;color:#46536a}
+.module li{margin:7px 0}
+.module-head{display:flex;align-items:flex-start;gap:10px;min-width:0}
+.module-head input{width:19px;height:19px;flex:0 0 19px;margin:3px 0 0;accent-color:var(--green)}
+.module-title{min-width:0;overflow-wrap:anywhere}
+.module.is-done .module-title{color:#778398;text-decoration:line-through}
+.module-status{font-size:11px;color:var(--green);font-weight:700;white-space:nowrap}
+.project{background:#f0f4ff;border-left:4px solid var(--brand);padding:13px 15px;border-radius:10px;margin-top:15px;overflow-wrap:anywhere}
+.project b{display:block;color:var(--brand2);margin-bottom:3px}
+.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.resource{padding:14px;border:1px solid var(--line);border-radius:13px;min-width:0;overflow-wrap:anywhere}
+.resource b{display:block}
+.resource small{display:block;color:var(--muted);margin:5px 0 8px}
+.table-wrap{width:100%;max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch;border-radius:10px}
+table{border-collapse:collapse;width:100%;min-width:460px;font-size:14px}
+td,th{text-align:left;padding:11px;border-bottom:1px solid var(--line);vertical-align:top}
+th{color:var(--muted);font-size:12px;text-transform:uppercase;letter-spacing:.05em}
+.checklist{display:grid;gap:10px}
+.check{display:flex;gap:10px;align-items:flex-start;padding:11px 12px;border:1px solid var(--line);border-radius:11px;min-width:0}
+.check input{margin-top:5px;accent-color:var(--brand);width:18px;height:18px;flex:0 0 18px}
+.check span{overflow-wrap:anywhere}
+.check.done span{text-decoration:line-through;color:#8993a5}
+.progress{height:11px;background:#e9edf5;border-radius:99px;overflow:hidden}
+.progress>div{height:100%;background:var(--green);width:0;transition:width .25s}
+.progress-row{display:flex;justify-content:space-between;align-items:center;gap:10px;margin:12px 0 7px;font-size:14px}
+.progress-row strong{font-variant-numeric:tabular-nums}
+.btn{border:0;background:var(--brand);color:#fff;border-radius:10px;padding:10px 14px;font-weight:750;cursor:pointer;min-height:42px}
+.btn:hover{background:var(--brand2)}
+.btn.secondary{background:#eef1f8;color:#34415a;border:1px solid var(--line)}
+.btn:focus-visible,a:focus-visible,input:focus-visible,summary:focus-visible{outline:3px solid #93c5fd;outline-offset:3px}
+.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:13px}
+.note{background:#fff8e8;border:1px solid #f4e1ae;border-radius:11px;padding:13px;color:#66501b}
+.curriculum-tools{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:10px;align-items:center;margin:16px 0}
+.search-input{width:100%;min-width:0;border:1px solid var(--line);border-radius:11px;padding:11px 13px;background:#fff;color:var(--ink)}
+.stage-progress{display:flex;align-items:center;gap:10px;margin-top:10px;color:var(--muted);font-size:12px}
+.stage-progress .progress{flex:1;height:7px}
+.stage-progress strong{color:var(--brand);white-space:nowrap}
+.empty-state{padding:20px;text-align:center;color:var(--muted);background:#fff;border:1px dashed var(--line);border-radius:12px}
+.footer{text-align:center;padding:30px 15px;color:var(--muted);font-size:12px}
+@media(max-width:900px){
+ .layout{grid-template-columns:minmax(0,1fr);gap:15px;margin-top:16px}
+ .sidebar{position:static;padding:12px}
+ .sidebar nav{display:flex;gap:5px;overflow-x:auto;overscroll-behavior-x:contain;padding-bottom:3px}
+ .sidebar a{white-space:nowrap;flex:0 0 auto}
+ .stats{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:600px){
+ body{font-size:15px}
+ .wrap{padding-inline:13px}
+ .top{padding:29px 0 25px}
+ .top h1{font-size:clamp(27px,8vw,36px)}
+ .top p{font-size:15px}
+ .layout{margin-top:13px}
+ .panel{padding:16px;border-radius:15px}
+ .grid2{grid-template-columns:minmax(0,1fr)}
+ .curriculum-tools{grid-template-columns:minmax(0,1fr)}
+ .curriculum-tools .actions{margin-top:0}
+ .stage-head{padding:15px}
+ .stage-body{padding:6px 15px 17px}
+ .module{padding:12px 0}
+ .module summary{font-size:14px}
+ .progress-row{font-size:13px}
+ .stat{padding:12px}
+ .stat span{font-size:11px}
+ .actions .btn{flex:1 1 auto}
+}
+@media(max-width:360px){
+ .wrap{padding-inline:10px}
+ .pills{gap:6px}
+ .pill{font-size:11px}
+ .stats{gap:7px}
+ .stat{padding:10px}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important}}
+@media print{
+ body{background:#fff;overflow:visible}
+ .top{background:#fff;color:#111;padding:15px 0}
+ .top p{color:#333}
+ .layout{display:block}
+ .sidebar,.actions,.btn,.curriculum-tools{display:none!important}
+ .panel,.stage,.stat{box-shadow:none;break-inside:avoid}
+ .stage{break-inside:auto}
+ .module{break-inside:avoid}
+ details:not([open])>*:not(summary){display:block}
+ .footer{display:none}
+}
+
 </style></head>
 <body>
 <header class="top"><div class="wrap"><div class="eyebrow">Programa de formación profesional</div><h1>Embudos de venta<br>Plan de estudios de 24 meses</h1><p>Una ruta progresiva desde los fundamentos de marketing hasta la estrategia avanzada, automatización, analítica, optimización y consultoría comercial.</p><div class="pills"><span class="pill">24 meses</span><span class="pill">8 etapas</span><span class="pill">34 módulos</span><span class="pill">12 h/semana sugeridas</span></div></div></header>
@@ -27,7 +152,18 @@ main{min-width:0}.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12p
 <section id="objetivos" class="panel"><h2>Objetivo general</h2><p>Desarrollar la capacidad de investigar mercados, diseñar, construir, medir y optimizar embudos de venta para distintos modelos de negocio; integrar adquisición, conversión, CRM y automatización; y demostrar las competencias mediante proyectos de portafolio.</p>
 <div class="stats"><div class="stat"><strong>24</strong><span>meses de formación</span></div><div class="stat"><strong>8</strong><span>etapas trimestrales</span></div><div class="stat"><strong>34</strong><span>módulos temáticos</span></div><div class="stat"><strong>8</strong><span>proyectos de portafolio</span></div></div>
 <h3>Competencias al finalizar</h3><ul><li>Diseñar funnels para servicios, ecommerce, productos digitales y B2B.</li><li>Investigar audiencias, ofertas, objeciones y competencia.</li><li>Crear landing pages, copy, campañas y secuencias de seguimiento.</li><li>Configurar CRM, automatizaciones y medición.</li><li>Interpretar CAC, LTV, ROAS, ROI y tasas de conversión.</li><li>Auditar embudos, priorizar experimentos y presentar resultados.</li></ul></section>
-<section id="curriculo"><h2 style="font-size:25px">Currículo detallado</h2><p class="muted">Abre cada módulo para consultar los temas y subtemas. Puedes marcar los módulos estudiados en tu seguimiento personal.</p><div id="stages"></div></section>
+<section id="curriculo" class="panel">
+<h2>Currículo detallado</h2>
+<p class="muted">Abre los módulos para estudiar los temas. Marca cada módulo cuando lo completes; tu avance se guarda automáticamente en este dispositivo.</p>
+<div class="progress-row"><strong>Progreso total del currículo</strong><strong id="moduleCount">0 / 34 módulos</strong></div>
+<div class="progress" role="progressbar" aria-label="Progreso del currículo" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="moduleProgress"><div id="moduleBar"></div></div>
+<div class="curriculum-tools">
+<input class="search-input" id="moduleSearch" type="search" placeholder="Buscar módulo o tema..." aria-label="Buscar módulo o tema">
+<div class="actions"><button class="btn secondary" id="expandAll" type="button">Expandir módulos</button><button class="btn secondary" id="collapseAll" type="button">Contraer módulos</button></div>
+</div>
+<div id="stages"></div>
+<div id="noResults" class="empty-state" hidden>No se encontraron módulos con esa búsqueda.</div>
+</section>
 <section id="metodologia" class="panel"><h2>Metodología semanal</h2><p>Distribución sugerida: 12 horas semanales. Ajusta el ritmo si tienes menos disponibilidad; lo importante es mantener la práctica constante.</p><div class="table-wrap"><table><thead><tr><th>Día</th><th>Actividad</th><th>Dedicación</th></tr></thead><tbody id="weekly"></tbody></table></div><div class="note">Regla de aprendizaje: cada concepto importante debe convertirse en un ejercicio, una decisión documentada o un entregable. Los cursos y videos complementan la práctica, no la sustituyen.</div></section>
 <section id="recursos" class="panel"><h2>Recursos educativos</h2><p class="muted">Prioriza documentación oficial y formación estructurada. Comprueba precios, disponibilidad y temarios actuales antes de inscribirte.</p><div class="grid2" id="resources"></div><h3>Bibliografía recomendada</h3><div id="books"></div><h3>Canales y creadores para complementar</h3><p>HubSpot, Google Analytics, MeasureSchool, CXL, Ben Heath, Alex Hormozi, Neil Patel y Wes McDowell. Contrasta los consejos con documentación oficial y datos; no adoptes tácticas sin validar su encaje con el negocio.</p></section>
 <section id="herramientas" class="panel"><h2>Herramientas por categoría</h2><div class="table-wrap"><table><thead><tr><th>Área</th><th>Herramientas para explorar</th></tr></thead><tbody id="tools"></tbody></table></div><p class="muted">No es necesario dominar todas las plataformas. Aprende primero una herramienta por función y selecciona según presupuesto, integraciones, privacidad y complejidad.</p></section>
@@ -40,8 +176,8 @@ const DATA = {"stages": [{"period": "Etapa 1 · Meses 1–3", "title": "Fundamen
 const esc = s => String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const stageRoot=document.getElementById('stages');
 DATA.stages.forEach((s,si)=>{
- const section=document.createElement('article');section.className='stage';
- section.innerHTML=`<div class="stage-head"><div class="period">${esc(s.period)}</div><h2>${esc(s.title)}</h2></div><div class="stage-body">${s.modules.map((m,mi)=>`<details class="module"><summary>${esc(m.name)}</summary><ul>${m.topics.map(t=>`<li>${esc(t)}</li>`).join('')}</ul></details>`).join('')}<div class="project"><b>Proyecto práctico de la etapa</b>${esc(s.project)}</div></div>`;
+ const section=document.createElement('article');section.className='stage';section.dataset.stage=si;
+ section.innerHTML=`<div class="stage-head"><div class="period">${esc(s.period)}</div><h2>${esc(s.title)}</h2><div class="stage-progress"><span class="stage-progress-text">Progreso de etapa</span><div class="progress"><div class="stage-bar"></div></div><strong class="stage-count">0/${s.modules.length}</strong></div></div><div class="stage-body">${s.modules.map((m,mi)=>{const id=`${si}-${mi}`;return `<details class="module" data-module-id="${id}"><summary><span class="module-head"><input type="checkbox" class="module-check" aria-label="Marcar ${esc(m.name)} como completado"><span class="module-title">${esc(m.name)}</span></span><span class="module-status"></span></summary><ul>${m.topics.map(t=>`<li>${esc(t)}</li>`).join('')}</ul></details>`}).join('')}<div class="project"><b>Proyecto práctico de la etapa</b>${esc(s.project)}</div></div>`;
  stageRoot.appendChild(section);
 });
 document.getElementById('weekly').innerHTML=DATA.weekly.map(r=>`<tr><td>${esc(r[0])}</td><td>${esc(r[1])}</td><td>${esc(r[2])}</td></tr>`).join('');
@@ -49,10 +185,79 @@ document.getElementById('resources').innerHTML=DATA.resources.map(r=>`<div class
 document.getElementById('books').innerHTML='<ul>'+DATA.books.map(b=>`<li><b>${esc(b[0])}</b> — ${esc(b[1])}: ${esc(b[2])}</li>`).join('')+'</ul>';
 document.getElementById('tools').innerHTML=DATA.tools.map(t=>`<tr><td><b>${esc(t[0])}</b></td><td>${esc(t[1])}</td></tr>`).join('');
 document.getElementById('assess').innerHTML=DATA.assess.map(a=>`<tr><td>${esc(a[0])}</td><td>${esc(a[1])}</td></tr>`).join('');
-const key='funnelStudy24PortfolioV1';let saved={};try{saved=JSON.parse(localStorage.getItem(key)||'{}')}catch(e){}
+const portfolioKey='funnelStudy24PortfolioV2';
+const moduleKey='funnelStudy24ModulesV1';
+function readStore(key){try{return JSON.parse(localStorage.getItem(key)||'{}')}catch(e){return {}}}
+let savedPortfolio=readStore(portfolioKey);
+let savedModules=readStore(moduleKey);
 const checks=document.getElementById('portfolioChecks');
-DATA.portfolio.forEach((p,i)=>{const label=document.createElement('label');label.className='check'+(saved[i]?' done':'');label.innerHTML=`<input type="checkbox" ${saved[i]?'checked':''}><span>${esc(p)}</span>`;label.querySelector('input').addEventListener('change',e=>{saved[i]=e.target.checked;label.classList.toggle('done',e.target.checked);persist()});checks.appendChild(label)});
-function persist(){try{localStorage.setItem(key,JSON.stringify(saved))}catch(e){}const n=DATA.portfolio.filter((_,i)=>saved[i]).length;document.getElementById('portfolioCount').textContent=`${n}/${DATA.portfolio.length}`;document.getElementById('portfolioBar').style.width=(n/DATA.portfolio.length*100)+'%'}
-document.getElementById('resetProgress').addEventListener('click',()=>{if(confirm('¿Reiniciar el progreso del portafolio?')){saved={};checks.querySelectorAll('input').forEach(x=>{x.checked=false;x.closest('label').classList.remove('done')});persist()}});
-persist();
+DATA.portfolio.forEach((p,i)=>{
+ const label=document.createElement('label');label.className='check'+(savedPortfolio[i]?' done':'');
+ label.innerHTML=`<input type="checkbox" ${savedPortfolio[i]?'checked':''}><span>${esc(p)}</span>`;
+ label.querySelector('input').addEventListener('change',e=>{savedPortfolio[i]=e.target.checked;label.classList.toggle('done',e.target.checked);persistPortfolio()});
+ checks.appendChild(label);
+});
+function persistPortfolio(){
+ try{localStorage.setItem(portfolioKey,JSON.stringify(savedPortfolio))}catch(e){}
+ const n=DATA.portfolio.filter((_,i)=>savedPortfolio[i]).length;
+ document.getElementById('portfolioCount').textContent=`${n}/${DATA.portfolio.length}`;
+ document.getElementById('portfolioBar').style.width=(n/DATA.portfolio.length*100)+'%';
+}
+function allModules(){return [...document.querySelectorAll('.module')]}
+function updateModuleUI(){
+ let completed=0;
+ document.querySelectorAll('.stage').forEach(stage=>{
+   const modules=[...stage.querySelectorAll('.module')];
+   let done=0;
+   modules.forEach(mod=>{
+     const input=mod.querySelector('.module-check');
+     const isDone=!!savedModules[mod.dataset.moduleId];
+     input.checked=isDone;
+     mod.classList.toggle('is-done',isDone);
+     mod.querySelector('.module-status').textContent=isDone?'Completado':'';
+     if(isDone){done++;completed++}
+   });
+   stage.querySelector('.stage-count').textContent=`${done}/${modules.length}`;
+   stage.querySelector('.stage-bar').style.width=(modules.length?done/modules.length*100:0)+'%';
+ });
+ const total=allModules().length;
+ document.getElementById('moduleCount').textContent=`${completed} / ${total} módulos`;
+ document.getElementById('moduleBar').style.width=(total?completed/total*100:0)+'%';
+ document.getElementById('moduleProgress').setAttribute('aria-valuenow',String(Math.round(total?completed/total*100:0)));
+ try{localStorage.setItem(moduleKey,JSON.stringify(savedModules))}catch(e){}
+}
+allModules().forEach(mod=>{
+ const input=mod.querySelector('.module-check');
+ input.addEventListener('click',e=>e.stopPropagation());
+ input.addEventListener('change',()=>{
+   savedModules[mod.dataset.moduleId]=input.checked;
+   updateModuleUI();
+ });
+});
+document.getElementById('moduleSearch').addEventListener('input',e=>{
+ const q=e.target.value.trim().toLocaleLowerCase('es');
+ let visible=0;
+ document.querySelectorAll('.stage').forEach(stage=>{
+   let stageVisible=false;
+   stage.querySelectorAll('.module').forEach(mod=>{
+     const match=!q||mod.textContent.toLocaleLowerCase('es').includes(q);
+     mod.hidden=!match;
+     if(match){stageVisible=true;visible++}
+     if(q&&match)mod.open=true;
+   });
+   stage.hidden=!stageVisible;
+ });
+ document.getElementById('noResults').hidden=visible!==0;
+});
+document.getElementById('expandAll').addEventListener('click',()=>allModules().forEach(m=>{if(!m.hidden)m.open=true}));
+document.getElementById('collapseAll').addEventListener('click',()=>allModules().forEach(m=>m.open=false));
+document.getElementById('resetProgress').addEventListener('click',()=>{
+ if(confirm('¿Reiniciar el progreso de módulos y portafolio?')){
+   savedModules={};savedPortfolio={};
+   checks.querySelectorAll('input').forEach(x=>{x.checked=false;x.closest('label').classList.remove('done')});
+   updateModuleUI();persistPortfolio();
+ }
+});
+updateModuleUI();
+persistPortfolio();
 </script></body></html>
